@@ -17,12 +17,12 @@ class pdoHandle
 	private $order = '';
 	private $field = '*';
 	
-    const PARAM_BOOL = PDO::PARAM_BOOL;
-	const PARAM_NULL = PDO::PARAM_NULL;
-	const PARAM_INT = PDO::PARAM_INT;
-	const PARAM_STR = PDO::PARAM_STR;
-	const PARAM_LOB = PDO::PARAM_LOB;
-	const PARAM_STMT = PDO::PARAM_STMT;
+    const PARAM_BOOL = \PDO::PARAM_BOOL;
+	const PARAM_NULL = \PDO::PARAM_NULL;
+	const PARAM_INT = \PDO::PARAM_INT;
+	const PARAM_STR = \PDO::PARAM_STR;
+	const PARAM_LOB = \PDO::PARAM_LOB;
+	const PARAM_STMT = \PDO::PARAM_STMT;
 	
 	
 
@@ -50,7 +50,7 @@ class pdoHandle
 		$stmt = $this->prepareBindParms($sql, $parms, $dataType);
 		$stmt->execute();
 		$this->errorInfo = $stmt->errorInfo();
-		return $stmt->fetch(PDO::FETCH_ASSOC);
+		return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
 
@@ -67,7 +67,7 @@ class pdoHandle
 		$stmt = $this->prepareBindParms($sql, $parms, $dataType);
 		$stmt->execute();
 		$this->errorInfo = $stmt->errorInfo();
-		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 	
 
@@ -243,7 +243,7 @@ class pdoHandle
 		$stmt->execute();
 		$this->defaultWhere();
 		$this->errorInfo = $stmt->errorInfo();
-		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 	}
 	
 	/**
@@ -264,7 +264,7 @@ class pdoHandle
 		$stmt->execute();
 		$this->defaultWhere();
 		$this->errorInfo = $stmt->errorInfo();
-		return $stmt->fetch(PDO::FETCH_ASSOC);
+		return $stmt->fetch(\PDO::FETCH_ASSOC);
 	}
 	
 	/**
