@@ -108,6 +108,9 @@ class pdoHandle
 	 */
     private function prepareBindParms($sql, $parms = [], $dataType = []){
         $stmt = $this->pdo->prepare($sql);
+		if($stmt === FALSE){
+	        throw new \Exception('SQL PrePare ERROR');
+		}
 		if(empty($parms)){
 			return $stmt;
 		}
