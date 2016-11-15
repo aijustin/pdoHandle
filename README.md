@@ -16,7 +16,7 @@ $manage->getRow('SELECT * FROM test');
 
 $manage->getRow('SELECT * FROM test WHERE id=:id', [':id'=>10]);
 
-$manage->getRow('SELECT * FROM test WHERE id=:id', [':id'=>10], [':id'=>$manage::PARAM_INT);
+$manage->getRow('SELECT * FROM test WHERE id=:id', [':id'=>10], [':id'=>$manage::PARAM_INT]);
 
 $manage->table('test')->all();
 

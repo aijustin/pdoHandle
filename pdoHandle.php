@@ -114,16 +114,15 @@ class pdoHandle
 		if(empty($parms)){
 			return $stmt;
 		}
-		$keys = array_keys($parms);		
-		array_map(function($val) use($stmt, $parms, $dataType){
+		array_walk($parms, function($v, $k) use($stmt, $dataType){
 			$callParms = [];
-			$callParms[] = $val;
-			$callParms[] = $parms[$val];
-			if(isset($dataType[$val])){
-				$callParms[] = $dataType[$val];
+			$callParms[] = $k;
+			$callParms[] = $v;
+			if(isset($dataType[$k])){
+				$callParms[] = $dataType[$k];
 			}
 			call_user_func_array([$stmt, 'bindValue'], $callParms);
-		}, $keys);
+		});
 		return $stmt;
     }
 	
