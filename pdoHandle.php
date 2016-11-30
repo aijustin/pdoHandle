@@ -29,6 +29,7 @@ class pdoHandle
     public function __construct($pdoObj)
 	{
         $this->pdo = $pdoObj;
+		$this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
 	
     public function __destruct(){
